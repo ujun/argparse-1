@@ -51,7 +51,7 @@
 <ul>
 <li><a href="#flags">Flags</a></li>
 <li><a href="#control-characters">Control characters</a></li>
-<li><a href="#setting-number-of-arguments">Setting number of arguments</a></li>
+<li><a href="#setting-number-of-arguments-1">Setting number of arguments</a></li>
 <li><a href="#setting-number-of-invocations">Setting number of invocations</a></li>
 </ul>
 </li>
@@ -276,7 +276,7 @@ Did you mean '--help'?
 <pre><code>pair    {foo, bar}
 </code></pre>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script2.lua foo bar baz
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script.lua foo bar baz
 </pre></div>
 
 <pre><code>pair    {foo, bar}
@@ -354,20 +354,20 @@ Options:
    <span class="p">:</span><span class="n">args</span> <span class="s2">"</span><span class="s">?"</span>
 </pre></div>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script3.lua --pair foo bar
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script.lua --pair foo bar
 </pre></div>
 
 <pre><code>pair    {foo, bar}
 </code></pre>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script3.lua --pair foo bar --optional
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script.lua --pair foo bar --optional
 </pre></div>
 
 <pre><code>pair    {foo, bar}
 optional    {}
 </code></pre>
 
-<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script3.lua --optional<span class="o">=</span>baz
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script.lua --optional<span class="o">=</span>baz
 </pre></div>
 
 <pre><code>optional    {baz}
@@ -558,12 +558,12 @@ Error: too few arguments
 
 <p>Consider the difference: </p>
 
-<pre><code>parser:option "-o"
-   :default "a.out"
-parser:option "-p"
-   :default "password"
-   :defmode "arg"
-</code></pre>
+<div class="highlight highlight-lua"><pre><span class="n">parser</span><span class="p">:</span><span class="n">option</span> <span class="s2">"</span><span class="s">-o"</span>
+   <span class="p">:</span><span class="n">default</span> <span class="s2">"</span><span class="s">a.out"</span>
+<span class="n">parser</span><span class="p">:</span><span class="n">option</span> <span class="s2">"</span><span class="s">-p"</span> 
+   <span class="p">:</span><span class="n">default</span> <span class="s2">"</span><span class="s">password"</span>
+   <span class="p">:</span><span class="n">defmode</span> <span class="s2">"</span><span class="s">arg"</span>
+</pre></div>
 
 <div class="highlight highlight-bash"><pre><span class="nv">$ </span>lua script.lua -h
 </pre></div>
