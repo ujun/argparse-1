@@ -51,6 +51,10 @@ local function new_class(prototype, properties, parent)
    -- Create setter methods and fill set of property names. 
    for _, property in ipairs(properties) do
       local name, callback = property[1], property[2]
+      if name == "args" then
+        print(name)
+        print(callback)
+      end
 
       class[name] = function(self, value)
          if not callback(self, value) then
