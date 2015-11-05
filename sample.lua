@@ -1,3 +1,8 @@
+require('lupe')
+Lupe:start()
+
+Lupe()
+
 local argparse = require "src/argparse"
 
 local parser = argparse("script", "An example.")
